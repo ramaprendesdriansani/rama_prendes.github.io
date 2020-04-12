@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>For All My Friends</title>
+  <meta name="description" content="from one of your friends">
+  <meta name="author" content="Rama Prendes Driansani" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/cssnya.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<style type="text/css">
+ 
+</style>
+<body>
+
+<!-- particles.js container -->
+
+  <div href="#" class="square">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="clock">--:--:--</span>
+  </div>
+  <div class="selamat"></div>
+
+  <div class="chatme">
+	  <a href="https://api.whatsapp.com/send?phone=6282276240456" class="float" target="_blank">
+      <i class="fa fa-whatsapp my-float"></i>
+    </a>
+	  <!-- <span class="two">
+	    <i class="fa fa-facebook"></i>
+	  </span> -->
+  </div>
+  <div class="quotes">
+     <span
+     class="txt-rotate"
+     data-period="2000"
+     data-rotate='[ 
+     "Luck is for the lazy, success is for those who work hard.", 
+     "Everyone knows you are the best student out there. All you need to do is work hard and revise with care. Good luck.", 
+     "Every exam is a step on the ladder of your life. Do well so that you have something rock solid to hold it all together. Good luck.", 
+     "Nothing can stop you from doing your best, nothing can pull you down – as long as you start studying hard and stop fooling around. Good luck.", 
+     "The easiest way to do well in your exams is to treat them like a giant punching bag. Use all the strength of your memory and punch the daylight of your tests." ]'></span>
+  </div>
+
+  <div id="particles-js"></div>
+
+
+<!-- scripts -->
+<script src="particlesjs/particles.js"></script>
+<script src="js/app.js"></script>
+
+<!-- stats.js -->
+
+<script>
+
+  function clock() {// We create a new Date object and assign it to a variable called "time".
+  var time = new Date(),
+      
+      // Access the "getHours" method on the Date object with the dot accessor.
+      hours = time.getHours(),
+      
+      // Access the "getMinutes" method with the dot accessor.
+      minutes = time.getMinutes(),
+      
+      
+      seconds = time.getSeconds();
+
+
+  document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+    
+    function harold(standIn) {
+      if (standIn < 10) {
+        standIn = '0' + standIn
+      }
+      return standIn;
+    }
+
+    if (hours < 6 && hours > 4) {
+      document.querySelectorAll('.selamat')[0].innerHTML = "Selamat pagii teman <br/> baru bangun ya? ayoo mandi dulu sana";
+    } 
+    else if (hours < 10 && hours > 4) {
+      document.querySelectorAll('.selamat')[0].innerHTML = "Selamat pagi teman <br/> jangan lupa sarapan yah!";
+      // document.querySelectorAll('.selamat')[0].innerHTML = "Selamat pagi <br/> Selamat pagi ! Selamat pagiiii ";
+    } 
+    else if (hours < 12 && hours > 4) {
+      document.querySelectorAll('.selamat')[0].innerHTML = "Selamat menjalani ujian hari ini yaa <br/> semoga ujiannya lancar amiin";
+    } 
+    else if (hours < 15 && hours > 4) {
+      document.querySelectorAll('.selamat')[0].innerHTML = "Selamat siang teman <br/> jangan telat makan yaa nanti kamu sakit";
+    } 
+    else if (hours < 16 && hours > 4) {
+      document.querySelectorAll('.selamat')[0].innerHTML = "Selamat siang teman <br/> apa kegiatanmu siang ini?";
+    } 
+    else if (hours < 18 && hours > 4) {
+      document.querySelectorAll('.selamat')[0].innerHTML = "Selamat sore teman <br/> semoga kamu baik-baik saja dirumah";
+    } 
+    else if (hours < 19 && hours > 4) {
+      document.querySelectorAll('.selamat')[0].innerHTML = "Selamat sore teman <br/> hayoo udah pada mandi belom? ayoo mandi dulu sana";
+    } 
+    else if (hours < 20 && hours > 4) {
+      document.querySelectorAll('.selamat')[0].innerHTML = "Selamat malam teman <br/> jangan lupa makan malam yaa";
+    } 
+    else if (hours < 21 && hours > 4) {
+      document.querySelectorAll('.selamat')[0].innerHTML = "Selamat malam teman <br/> waktunya istirahat, besok masih ada UTS kan?";
+    } 
+    else if (hours < 22 && hours > 4) {
+      document.querySelectorAll('.selamat')[0].innerHTML = "Selamat malam teman <br/> waktunya istirahat dan jangan lupa berdoa yaa";
+    } 
+    else {
+      // document.querySelectorAll('.selamat')[0].innerHTML = "Selamat malam teman";
+      document.querySelectorAll('.selamat')[0].innerHTML = "Waktunya tidur, mimpi indah yaa :), semoga besok ujianmu lancar";
+    }
+  }
+
+  setInterval(clock, 1000);
+  //https://codepen.io/CheeseTurtle/pen/jzdgI
+
+  var TxtRotate = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+  };
+
+  TxtRotate.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+    var that = this;
+    var delta = 300 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+      delta = this.period;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      this.loopNum++;
+      delta = 500;
+    }
+
+    setTimeout(function() {
+      that.tick();
+    }, delta);
+  };
+
+  window.onload = function() {
+    var elements = document.getElementsByClassName('txt-rotate');
+    for (var i=0; i<elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-rotate');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtRotate(elements[i], JSON.parse(toRotate), period);
+      }
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+    document.body.appendChild(css);
+  };
+</script>
+
+</body>
+</html>
